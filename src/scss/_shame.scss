@@ -1,0 +1,192 @@
+.cdt {
+    &-img-container {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+    }
+    
+    &-jumbotron {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        padding: 60px 0;
+        .cdt {
+            &-bg-tilt {
+                &-right {
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    
+                    transform: skewY(-4deg);
+                    transform-origin: top left;
+                }
+                &-left {
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: skewY(4deg);
+                    transform-origin: top right;
+                }
+            }
+        }
+        &.rounded {
+          border-bottom-left-radius: 60% 10%;
+          border-bottom-right-radius: 60% 10%;
+        }
+        @media screen and (max-width: $mobile-breakpoint) {
+          padding: 60px 30px;
+        }
+        &.center {
+          justify-content: center;
+          text-align: center;
+        }
+        &.right {
+          justify-content: flex-end;
+        }
+        .cdt-btn {
+          margin-top: 30px;
+        }
+        .cdt-sub-header {
+          margin-top: 20px;
+        }
+    }
+}
+body {
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Rubik', sans-serif;
+}
+footer {
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    &.nav-right {
+        nav {
+        margin-left: auto;
+        }
+    }
+    nav {
+        ul {
+        list-style: none;
+        display: flex;
+        padding: 0 30px;
+        li {
+            padding: 0 10px;
+        }
+        }
+    }
+}
+
+
+/* example specific scss */
+div.cdt-top-nav {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .cdt-jumbotron {
+    margin-top: 40px;
+    padding-bottom: 100px;
+    .cdt-bg-tilt-right {
+      background-color: #eee;
+    }
+  }
+  
+  section {
+    // padding: 60px 160px;
+    &.big-image {
+      padding: 0;
+      height: 400px;
+      background: url('https://static1.squarespace.com/static/537b0649e4b0f6c6b6877a35/t/592d6da5d1758e7c6fe7afcd/1496149558741/woman+running?format=750w');
+      background-size: cover;
+      .cdt-card {
+        margin: 40px 90px;
+      }
+    }
+    &.watch {
+      padding: 0;
+      
+      .cdt-card {
+        margin: 40px 90px;
+      }
+      .clock-face {
+        height: 400px;
+        background: url('http://www.hypebeast.com/image/2011/04/braun-watch-collection-1.jpg');
+        background-size: cover;
+      }
+    }
+    @media screen and (max-width: $tablet-breakpoint) {
+      //padding: 20px;
+    }
+    &.stuff {
+      button {
+        margin-top: 20px;
+      }
+    }
+  }
+  .cdt-carousel .wrapper > div {
+    color: #000 !important;
+    font-size: 50px;
+  }
+  .cdt-carousel .btn {
+    transform: scale(0.8);
+  }
+  .cdt-carousel .btn {
+    flex-basis: 40px !important;
+  }
+  .cdt-carousel .btn .arrow  {
+    border-color: $primary-color-1 !important;
+  }
+  .cdt-carousel .btn .arrow-1  {
+    background: $primary-color-1 !important;
+  }
+  .form {
+    .cdt-row {
+      .cdt-label {
+        padding-top: 12px;
+      }
+      flex-wrap: wrap;
+      .cdt-toggle label {
+        order: -1;
+      }
+    }
+  }
+  .actual {
+    padding: 20px;
+  }
+  .actual ul {
+    margin: 0;
+    padding: 0;
+  }
+  .actual ul li {
+    display: inline-block;
+    width: 30%;
+    height: 160px;
+    background: #999;
+    margin: 10px;
+  }
+  .actual ul li:nth-child(1) {
+    background: url('http://forcats.persiangig.com/irancatwatch/f527739_376094665771998_150374531677347_992415_1558730898_n.jpg');
+    background-size: cover;
+  }
+  .actual ul li:nth-child(2) {
+    background: url('https://media.istockphoto.com/photos/grey-squirrel-yawning-picture-id473012660?k=6&m=473012660&s=612x612&w=0&h=opzkOsCuudeI_l83My-WdfTiru2mpuwZMpVomymwC9c=');
+    background-size: cover;
+  }
+  .actual ul li:nth-child(3) {
+    background: url('http://kb4images.com/images/great-pic/36853693-great-pic.jpg');
+    background-size: cover;
+  }
+  

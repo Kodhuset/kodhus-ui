@@ -1,0 +1,76 @@
+.cdt {
+    &-btn {
+        outline: none;
+        &-transparent {
+          background: 0;
+          color: $primary-color-1;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($primary-color-1, 20%);
+            color: #fff;
+          }
+        }
+        &-rounded {
+          border-radius: 3px;
+        }
+        &-full-rounded {
+          border-radius: 50px;
+        }
+        &-large {
+          font-size: 15px;
+           padding: 20px 35px;
+        }
+        &-small {
+          font-size: 12px;
+           padding: 10px 16px;
+        }
+        font-size: 14px;
+        border: none;
+        border-radius: 1px;
+        padding: 10px 20px;
+        text-decoration: none;
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+        &-primary {
+          color: #fff;
+          background: $primary-color-1;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($primary-color-1, 5%);
+          }
+        }
+        &-primary-1 {
+          color: #fff;
+          background: $primary-color-2;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($primary-color-2, 5%);
+          }
+        }
+        &-secondary {
+          color: #fff;
+          background: $secondary-color;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($secondary-color, 5%);
+          }
+        }
+        &-error {
+          color: #fff;
+          background: $error-color;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($error-color, 5%);
+          }
+        }
+        &-gray {
+          color: #fff;
+          background: $gray-color-2;
+          transition: all 0.2s;
+          &:hover {
+            background: darken($gray-color-2, 5%);
+          }
+        }
+    }
+}

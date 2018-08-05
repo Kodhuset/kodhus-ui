@@ -1,0 +1,35 @@
+{
+  "name": "kodhus",
+  "version": "0.1.0",
+  "description": "Kodhus css and js library",
+  "author": "Kodhus",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^1.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.56",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-uglify": "^4.0.0"
+  },
+  "scripts": {
+    "build-css": "gulp sass-build",
+    "build-css-min": "gulp sass-build-min",
+    "build-js": "rollup -c rollup.config.dev.js",
+    "build-js-min": "rollup -c rollup.config.prod.js",
+    "build": "npm run build-css & npm run build-js",
+    "build-min": "npm run build-css-min & npm run build-js-min",
+    "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min"
+  } 
+}

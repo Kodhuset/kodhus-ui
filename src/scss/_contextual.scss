@@ -1,0 +1,32 @@
+.contextual-container {
+    position: relative;
+  }
+  .cdt {
+    &-contextual {
+      background: #fff;
+      position: absolute;
+      left: 0;
+      z-index: 9999;
+      top: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      border: 1px solid #acacac;
+      border-bottom-color: #999;
+      min-width: 250px;
+      padding: 4px 0;
+      border-radius: 3px;
+      visibility: hidden;
+      opacity: 0;
+      &.show {
+        visibility: visible;
+        opacity: 1;
+      }
+      .contextual-item {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }

@@ -1,0 +1,60 @@
+.cdt {
+    &-card {
+        &.border {
+          border: 1px solid #eee;
+          &> *:not(.image) {
+            padding: 15px !important;
+          }
+        }
+        header {
+          &.border {
+            border-bottom: 1px solid $gray-color-4;
+          }
+            h1, h2, h3, h4, h5, h6,
+          .h1, .h2, .h3, .h4, .h5, .h6 {
+            margin-bottom: 0;
+          }
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            .title, .sub-title {
+            margin-bottom: 5px;
+            }
+        }
+      .image {
+        img {
+                  width: 100%;
+                  height: auto;
+              }
+      }
+      main {
+          &.border {
+              border-top: 1px solid $gray-color-4;
+          }
+          .image {
+              img {
+                  width: 100%;
+                  height: auto;
+              }
+          }
+        }
+        .actions {
+          display: flex;
+          &.border {
+            border-top: 1px solid $gray-color-4;
+          }
+          &.right {
+            justify-content: flex-end;
+          }
+          &.center {
+            justify-content: center;
+          }
+          padding: 10px 0;
+            button {
+            &:not(:first-child) {
+                margin: 0 5px;
+            }
+            }
+        }
+    }
+}

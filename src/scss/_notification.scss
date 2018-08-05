@@ -1,0 +1,43 @@
+.cdt {
+    &-notification {
+        width: 90%;
+        padding: 10px 20px;
+        background: #202124;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
+        transition: all 0.3;
+        &.hide {
+            display: none;
+        }
+        .close {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            &:before, &:after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                background-color: #fff;
+                transform-origin: left;
+            }
+            &:before {
+                transform: translate(4px, 2px) rotate(45deg);
+            }
+            &:after {
+                transform-origin: right;
+                transform: translate(-2px, 2px) rotate(-45deg);
+            }
+        }
+    }
+}

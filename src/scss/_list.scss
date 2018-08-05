@@ -1,0 +1,101 @@
+.cdt {
+    &-list {
+        header {
+            padding: 5px 0;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li  {
+              ul {
+                display: none;
+                &.show {
+                    display: block;
+                }
+                &.hide {
+                    display: none;
+                }
+                position: relative;
+                &.border {
+                  .avatar {
+                    margin-left: 10px;
+                    margin-right: 0px;
+                  }
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    left: 44px;
+                    top: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: #eee;
+                  }
+                }
+                .cdt-list-item {
+                    padding: 5px 0 5px 44px;
+                    &.selected {
+                        &:before {
+                            content: '';
+                            height: 60%;
+                            width: 2px;
+                            position: absolute;
+                            background-color: darken($gray-color-4, 100%);
+                            left: 44px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }                   
+                  .item {
+                    padding-left: 20px;
+                  }
+                  .avatar + .item {
+                    padding-left: 0;
+                  }
+                 }
+              }
+               .cdt-list-item {
+                   position: relative;
+                    display: flex;
+                    padding: 3px 0;
+                    align-items: center;
+                    .avatar {
+                        margin: 0 6px 0 0;
+                        display: flex;
+                        align-items: center;
+                        line-height: 1;
+                        min-width: 36px;
+                        min-height: 36px;
+                    }
+                    .item {
+                        padding-top: 10px;
+                        flex: 1;
+                        align-items: center;
+                        line-height: 1;
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                    .avatar + .item {
+                        padding-top: 0;
+                    }
+                    .extra {
+                        line-height: 1;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 5px;
+                    }
+                } 
+            }
+        }
+        &.no-underline {
+            a {
+            text-decoration: none;
+            }
+        }
+        }
+        &-divider {
+        margin: 0;
+        border: 1px solid $gray-color-4;
+    }
+}

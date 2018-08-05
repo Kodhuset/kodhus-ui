@@ -1,0 +1,126 @@
+.cdt {
+    &-row {
+        display: flex;
+        margin: 0 -8px;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-wrap: wrap;
+        }
+        &.no-padding {
+            .cdt-4, .cdt-3, .cdt-6, .cdt-12 {
+            padding: 0;
+            }
+        }
+    }
+    &-1, &-2, &-3, &-4, &-5, &-6, &-7, &-8, &-9, &-10, &-11, &-12 {
+        line-height: 1.4rem;
+        box-sizing: border-box;
+        padding: 0.6rem;
+        &.no-padding {
+            padding: 0;
+        }
+    }
+    &-1 {
+        width: 8.3%;
+        flex: 0 0 8.3%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 8.3%;
+        }
+    }
+    &-2 {
+        width: 16.6%;
+        flex: 0 0 16.6%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 16.6%;
+        }
+    }
+    &-3 {
+        width: 25%;
+        flex: 0 0 25%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 25%;
+        }
+    }
+    &-4 {
+        width: 33.3%;
+        flex: 0 0 33.3%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 50%;
+        }
+    }
+    &-5 {
+        width: 41.6%;
+        flex: 0 0 41.6%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 41.6%;
+        }
+    }
+    &-6 {
+        width: 50%;
+        flex: 0 0 50%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 50%;
+        }
+    }
+    &-7 {
+        width: 58.3%;
+        flex: 0 0 58.3%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 58.3%;
+        }
+    }
+    &-8 {
+        width: 66.6%;
+        flex: 0 0 66.6%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 66.6%;
+        }
+    }
+    &-9 {
+        width: 75%;
+        flex: 0 0 75%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 75%;
+        }
+    }
+    &-10 {
+        width: 83.3%;
+        flex: 0 0 83.3%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 83.3%;
+        }
+    }
+    &-11 {
+        width: 91.6%;
+        flex: 0 0 91.6%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 91.6%;
+        }
+    }
+    &-12 {
+        width: 100%;
+        flex: 0 0 100%;
+        @media screen and (max-width: $tablet-breakpoint) {
+            flex-basis: 100%;
+            width: 100%;
+        }
+    }
+    &-container {
+        margin: 0 auto;
+        position: relative;
+        @media screen and (min-width: $tablet-breakpoint) {
+            width: 1180px;
+            padding: 0 10px;
+        }
+    }
+}
