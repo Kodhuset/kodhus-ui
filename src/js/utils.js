@@ -1,8 +1,8 @@
 const Utils = (() => {
   const tabletPhoneBreakpoint = 768;
   return {
-    tabletPhoneBreakpoint
-  }
+    tabletPhoneBreakpoint,
+  };
 })();
 
 export default Utils;

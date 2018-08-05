@@ -6,9 +6,11 @@ import BGParallax from './bg-parallax';
 import Carousel from './carousel';
 
 (() => {
-  document.querySelectorAll('pre code').forEach(function(block, i) {
-      hljs.highlightBlock(block);
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
   });
 })();
 
-export { Dialog, Notification, Navigation, Aiv, BGParallax, Carousel };
+export {
+  Dialog, Notification, Navigation, Aiv, BGParallax, Carousel,
+};
