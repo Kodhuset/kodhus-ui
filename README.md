@@ -7,5 +7,5 @@ Kodhus css and javascript UI library
 3. Take a look at scripts in package.json to see how you can build css and js bundles.
 
 ---
-## Preparations before commit
+## Collaboration
 * For collaboration, modify your additions/changes in a new branch and create a pull request to master branch
