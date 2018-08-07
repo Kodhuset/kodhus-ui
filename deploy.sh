@@ -3,7 +3,7 @@ HOST='ftp.kodhus.com'
 LOCALPATH='dist'
 REMOTEPATH='/kodhus-ui'
 
-ftp -n $HOST <<END_SCRIPT
+ftp -n -p $HOST <<END_SCRIPT
 quote USER $USER
 quote PASS $PASSWD
 lcd $LOCALPATH
