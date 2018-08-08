@@ -17,8 +17,18 @@ class KScroll {
   }
 
   findEndingFrame() {
-    return Math.max(...this.options.items.map(item => item.frames)
-      .reduce((acc, current) => [...acc, ...current], []).map(f => f.scrollPosition));
+    let max = -9999999;
+    let maxFrame = {};
+    this.options.items.map(item => item.frames)
+      .reduce((acc, current) => [...acc, ...current], [])
+      .forEach((f) => {
+        const digitVal = KScroll.getDigitValue(f.scrollPosition);
+        if (digitVal > max) {
+          max = digitVal;
+          maxFrame = f;
+        }
+      });
+    return maxFrame.scrollPosition;
   }
 
   static createStory(frames) {
@@ -94,8 +104,16 @@ class KScroll {
     return c >= min && c <= max;
   }
 
+  static getDigitValue(amount) {
+    return +(amount.match(/\d+/));
+  }
+
   frameToScreen(amount) {
-    return (amount / 100) * this.windowHeight;
+    const num = KScroll.getDigitValue(amount);
+    if (amount.charAt(amount.length - 1) === '%') {
+      return (num / 100) * this.windowHeight;
+    }
+    return num;
   }
 
   scroll(scrollPos) {
@@ -125,8 +143,8 @@ class KScroll {
         });
       } else {
         scrollable.story.frames.forEach((frame) => {
-          const startFrame = (frame.start / 100) * this.windowHeight;
-          const endFrame = (frame.end / 100) * this.windowHeight;
+          const startFrame = this.frameToScreen(frame.start);
+          const endFrame = this.frameToScreen(frame.end);
           if (KScroll.between(startFrame, endFrame, scrollPos)) {
             Object.keys(frame.styles).forEach((style) => {
               let i = -1;
