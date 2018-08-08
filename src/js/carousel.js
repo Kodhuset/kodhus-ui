@@ -1,3 +1,4 @@
+
 const Carousel = (() => {
   const whichTransitionEvent = () => {
     const el = document.createElement('fake');
@@ -6,12 +7,13 @@ const Carousel = (() => {
       MozTransition: 'transitionend',
       transition: 'transitionend',
     };
-    Object.keys(transEndEventNames).map((key) => {
+    let transitionEvent = 'transitionend';
+    Object.keys(transEndEventNames).forEach((key) => {
       if (el.style[key] !== undefined) {
-        return transEndEventNames[key];
+        transitionEvent = transEndEventNames[key];
       }
-      return null;
     });
+    return transitionEvent;
   };
 
   let inTransition = false;
@@ -22,7 +24,7 @@ const Carousel = (() => {
   if (carousel) {
     const carouselType = carousel.getAttribute('data-carousel-type');
     let autoSlide = false;
-    if (carousel.getAttribute('data-auto-slide')) {
+    if (carousel.getAttribute('data-auto-slide') === 'true') {
       autoSlide = true;
     } else {
       autoSlide = false;
@@ -30,7 +32,7 @@ const Carousel = (() => {
     const slideDelay = carousel.getAttribute('data-slide-delay');
 
     let infinite = false;
-    if (carousel.getAttribute('data-infinite')) {
+    if (carousel.getAttribute('data-infinite') === 'true') {
       infinite = true;
     } else {
       infinite = false;

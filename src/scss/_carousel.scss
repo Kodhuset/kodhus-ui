@@ -81,6 +81,10 @@
         }
         width: 40px;
         height: 40px;
+        @media screen and (max-width: $mobile-breakpoint) {
+          width: 30px;
+          height: 30px;
+        }
         display: inline-block;
         position: relative;
         align-items: center;
