@@ -4,13 +4,13 @@ const Dialog = (() => {
 
   dialogTriggers.forEach((trigger) => {
     trigger.addEventListener('click', () => {
-      document.querySelector(trigger.dataset.dialog).classList.add('show');
+      document.querySelector(trigger.dataset.dialog).classList.remove('hide');
     });
   });
 
   dialogs.forEach((dialog) => {
     dialog.querySelector("[data-close='true']").addEventListener('click', () => {
-      dialog.classList.remove('show');
+      dialog.classList.addClass('hide');
     });
   });
 })();

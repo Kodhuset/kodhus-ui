@@ -9,7 +9,11 @@ export default {
     name: 'Kodhus',
     file: `dist/kodhus-${version}.min.js`,
     format: 'iife',
-    // sourcemap: 'inline'
+    banner: `/*!
+    * Kodhus v${version}
+    * Copyright 2018 Kodhus (https://kodhus.com)
+    * Licensed under MIT (https://github.com/Kodhuset/kodhus-ui/blob/master/LICENSE.md)
+    */`,
   },
   plugins: [
     babel({
