@@ -39,7 +39,12 @@
     }
   }
   &-top-nav {
+    &.sticky {
+      position: sticky;
+      top: 0;
+    }
     display: flex;
+    background: #fff;
     flex-wrap: wrap;
     position: relative;
     .navigations {
