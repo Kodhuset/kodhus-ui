@@ -44,12 +44,14 @@
       top: 0;
       left: 0;
       width: 100%;
+      z-index: 9999;
     }
     &.hide-on-scroll {
       position: sticky;
       left: 0;
       top: 0;
       width: 100%;
+      z-index: 9999;
     }
     display: flex;
     background: #fff;
