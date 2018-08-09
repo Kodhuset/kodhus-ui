@@ -29,7 +29,7 @@
     li {
       .cdt-list-item {
         position: relative;
-        &:hover {
+        a:hover {
           color: $primary-color-1;
           a {
             color: $primary-color-1;
@@ -131,6 +131,10 @@
         color: $primary-color-1;
       }
     }
+    nav ul li {
+      align-items: center;
+      display: flex;
+    }
     &.underline {
       nav ul li {
         &:hover,
@@ -159,16 +163,25 @@
     &.border {
       padding: 20px 0;
       nav ul li {
-        border-radius: 2px;
-        border: 1px solid transparent;
+        a {
+          border: 1px solid transparent;
+          border-radius: 2px;
+        }
         margin: 0 5px;
         @media screen and (max-width: 700px) {
           margin: 5px;
         }
         transition: all 0.2s;
-        &:hover,
+        a {
+          &:hover {
+            border: 1px solid $primary-color-1;  
+          }
+        }
         &.selected {
-          border: 1px solid $primary-color-1;
+          a {
+            border: 1px solid $primary-color-1;
+          }
+          
         }
       }
     }

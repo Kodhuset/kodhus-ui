@@ -8,11 +8,8 @@ const Dialog = (() => {
     });
   });
 
-  dialogs.forEach((dialog) => {
-    dialog.querySelector("[data-close='true']").addEventListener('click', () => {
-      dialog.classList.addClass('hide');
-    });
-  });
+  dialogs.forEach(dialog => dialog.querySelectorAll("[data-close='true']")
+    .forEach(closeTrigger => closeTrigger.addEventListener('click', () => dialog.classList.add('hide'))));
 })();
 
 export default Dialog;
