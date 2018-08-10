@@ -5,6 +5,7 @@ import Aiv from './aiv';
 import BGParallax from './bg-parallax';
 import Carousel from './carousel';
 import KScroll from './scroll-story';
+import Tab from './tab';
 
 (() => {
   document.querySelectorAll('pre code').forEach((block) => {
@@ -13,5 +14,5 @@ import KScroll from './scroll-story';
 })();
 
 export {
-  Dialog, Notification, Navigation, Aiv, BGParallax, Carousel, KScroll,
+  Dialog, Notification, Navigation, Aiv, BGParallax, Carousel, KScroll, Tab,
 };
