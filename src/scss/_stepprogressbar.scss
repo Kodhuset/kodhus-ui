@@ -1,0 +1,79 @@
+.cdt {
+  $step-active-color: $primary-color-1;
+  $step-default-color: $gray-color-3;
+  &-step-progressbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    &.horizontal {
+      flex-direction: row;
+      li {
+        color: $step-default-color;
+        padding-top: 40px;
+        padding-left: 0;
+        border-top: 1px solid $step-default-color;
+        border-left: none;
+        .title {
+          position: absolute;
+          transform: translate(-50%);
+          margin-left: 18px;
+          text-align: center;
+        }
+        &:last-child {
+          border: none;
+        }
+        .indicator {
+          transform: translateY(-50%);
+        }
+        &.active {
+          border-top-color: $step-active-color;
+          .title {
+            color: $step-active-color;
+          }
+          .indicator {
+            border-color: $step-active-color;
+            color: $step-active-color;
+          }
+        }
+      }
+    }
+    li {
+      padding: 7px 0 40px 40px;
+      border-left: 1px solid $step-default-color;
+      position: relative;
+      color: $step-default-color;
+      &.active {
+        &.fix-last-active {
+          border-color: $step-default-color;
+        }
+        border-left-color: $step-active-color;
+        .title {
+          color: $step-active-color;
+        }
+        .indicator {
+          border-color: $step-active-color;
+          color: $step-active-color;
+        }
+      }
+      .indicator {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid $step-default-color;
+        color: #aaa;
+        transform: translate(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

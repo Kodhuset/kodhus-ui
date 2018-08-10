@@ -6,6 +6,7 @@ import BGParallax from './bg-parallax';
 import Carousel from './carousel';
 import KScroll from './scroll-story';
 import Tab from './tab';
+import StepProgressBar from './step-progressbar';
 
 (() => {
   document.querySelectorAll('pre code').forEach((block) => {
@@ -14,5 +15,5 @@ import Tab from './tab';
 })();
 
 export {
-  Dialog, Notification, Navigation, Aiv, BGParallax, Carousel, KScroll, Tab,
+  Dialog, Notification, Navigation, Aiv, BGParallax, Carousel, KScroll, Tab, StepProgressBar,
 };
