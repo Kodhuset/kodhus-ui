@@ -88,37 +88,39 @@ const Navigation = (() => {
 
   // Hide on Scroll
   const topNavScrollHide = document.querySelector('.cdt-top-nav.hide-on-scroll');
-  const hideOnScrollOffsetTop = '60';
-  let isVisible = true;
+  if (topNavScrollHide) {
+    const hideOnScrollOffsetTop = '60';
+    let isVisible = true;
 
-  let lastKnownScrollPosition = 0;
-  let ticking = false;
-  let previousScrollY = 0;
+    let lastKnownScrollPosition = 0;
+    let ticking = false;
+    let previousScrollY = 0;
 
-  function showHideNav(scrollPos) {
-    if (scrollPos > previousScrollY) {
-      if (isVisible && scrollPos > hideOnScrollOffsetTop) {
-        isVisible = false;
+    const showHideNav = (scrollPos) => {
+      if (scrollPos > previousScrollY) {
+        if (isVisible && scrollPos > hideOnScrollOffsetTop) {
+          isVisible = false;
+          topNavScrollHide.style.transition = 'transform 200ms ease-out';
+          topNavScrollHide.style.transform = 'translateY(-100%)';
+        }
+      } else if (!isVisible) {
         topNavScrollHide.style.transition = 'transform 200ms ease-out';
-        topNavScrollHide.style.transform = 'translateY(-100%)';
+        topNavScrollHide.style.transform = 'translateY(0)';
+        isVisible = true;
       }
-    } else if (!isVisible) {
-      topNavScrollHide.style.transition = 'transform 200ms ease-out';
-      topNavScrollHide.style.transform = 'translateY(0)';
-      isVisible = true;
-    }
-    previousScrollY = scrollPos;
+      previousScrollY = scrollPos;
+    };
+    window.addEventListener('scroll', () => {
+      lastKnownScrollPosition = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          showHideNav(lastKnownScrollPosition);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
   }
-  window.addEventListener('scroll', () => {
-    lastKnownScrollPosition = window.scrollY;
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        showHideNav(lastKnownScrollPosition);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
 })();
 
 export default Navigation;
