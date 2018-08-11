@@ -59,6 +59,26 @@
     }
     display: flex;
     background: #fff;
+    &.dark {
+      background: #333;
+      color: #fff;
+      .logo a {
+        color: #fff;
+      }
+      &.border {
+        .navigations nav ul li {
+          &.selected, :hover {
+            a {
+              border-color: #fff;
+              color: #fff;
+            }
+            border-color: #fff;
+            color: #fff;
+          }
+          
+        }
+      }
+    }
     flex-wrap: wrap;
     position: relative;
     .navigations {
@@ -155,7 +175,7 @@
       display: flex;
     }
     &.underline {
-      nav ul li {
+      .navigations nav ul li {
         &:hover,
         &.selected {
           &:after {
@@ -171,7 +191,7 @@
       }
     }
     &.highlight {
-      nav ul li {
+      .navigations nav ul li {
         transition: all 0.2s;
         &:hover,
         &.selected {
@@ -180,8 +200,12 @@
       }
     }
     &.border {
-      padding: 20px 0;
-      nav ul li {
+      .navigations {
+        &:not(.underline):not(.highlight) {
+          padding: 20px 0 20px !important;
+        }
+      }
+      .navigations nav ul li {
         a {
           border: 1px solid transparent;
           border-radius: 2px;
@@ -219,6 +243,15 @@
       }
     }
     .navigations {
+      background: #fff;
+      &.cdt-second-nav {
+        flex-basis: 100%;
+        display: flex;
+        clear: both;
+        &.center {
+          justify-content: center;
+        }
+      }
       @media screen and (max-width: $mobile-breakpoint) {
         display: none;
         position: absolute;
@@ -230,6 +263,69 @@
       }
       &.show {
         display: block;
+      }
+      &.underline {
+        nav ul li {
+          border: 0;
+          a {
+            border: 0;
+          }
+          &:hover,
+          &.selected {
+            a {
+              border: 0;
+            }
+            &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              height: 3px;
+              background: $primary-color-1;
+            }
+          }
+        }
+      }
+      &.light {
+        background: #fff;
+        nav {
+          ul {
+            li {
+              &.selected, &:hover {
+                a {
+                  color: $primary-color-1 !important;
+                }
+                &:after {
+                  background: $primary-color-1;
+                }
+              }
+              a {
+                  color: #aaa;
+              }
+            }
+          }
+        }
+      }
+      &.dark {
+        background: #333;
+        nav {
+          ul {
+            li {
+              &.selected, &:hover {
+                a {
+                  color: #fff;
+                }
+                &:after {
+                  background: #fff;
+                }
+              }
+              a {
+                  color: #aaa;
+              }
+            }
+          }
+        }
       }
     }
     nav {

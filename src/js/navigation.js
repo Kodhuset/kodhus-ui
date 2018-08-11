@@ -89,6 +89,13 @@ const Navigation = (() => {
   // Hide on Scroll
   const topNavScrollHide = document.querySelector('.cdt-top-nav.hide-on-scroll');
   if (topNavScrollHide) {
+    const secondaryNav = document.querySelector('.cdt-second-nav');
+    const topNavHideHeight = topNavScrollHide.offsetHeight;
+    let calculatedTopNavHeight = topNavHideHeight;
+    if (secondaryNav) {
+      calculatedTopNavHeight = topNavHideHeight - secondaryNav.offsetHeight;
+      console.log('yes', calculatedTopNavHeight);
+    }
     const hideOnScrollOffsetTop = '60';
     let isVisible = true;
 
@@ -99,12 +106,13 @@ const Navigation = (() => {
     const showHideNav = (scrollPos) => {
       if (scrollPos > previousScrollY) {
         if (isVisible && scrollPos > hideOnScrollOffsetTop) {
+          topNavScrollHide.style.height = `${calculatedTopNavHeight}px`;
           isVisible = false;
-          topNavScrollHide.style.transition = 'transform 200ms ease-out';
+          topNavScrollHide.style.transition = 'transform 400ms ease-out';
           topNavScrollHide.style.transform = 'translateY(-100%)';
         }
       } else if (!isVisible) {
-        topNavScrollHide.style.transition = 'transform 200ms ease-out';
+        topNavScrollHide.style.transition = 'transform 400ms ease-out';
         topNavScrollHide.style.transform = 'translateY(0)';
         isVisible = true;
       }
