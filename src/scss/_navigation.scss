@@ -2,6 +2,9 @@
   &-secondary {
     ul li .cdt-list-item {
       padding-left: 20px;
+      @media screen and (max-width: 768px) {
+        flex-grow: 1;
+      }
     }
     p {
       padding-left: 20px;
@@ -10,6 +13,7 @@
   &-nav {
     li.selected {
       &>.cdt-list-item {
+        
         &:before {
           content: '';
           height: 60%;
