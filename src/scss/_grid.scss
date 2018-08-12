@@ -118,7 +118,7 @@
     &-container {
         margin: 0 auto;
         position: relative;
-        @media screen and (min-width: $tablet-breakpoint) {
+        @media screen and (min-width: $desktop-breakpoint) {
             width: 1180px;
             padding: 0 10px;
         }

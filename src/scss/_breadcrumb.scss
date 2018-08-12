@@ -1,0 +1,38 @@
+.cdt {
+  $breadcrumb-bg: #f2f2f2;
+  $active-color: $gray-color-2;
+  $item-padding: 0.8rem 0;
+  &-breadcrumb {
+    background: $breadcrumb-bg;
+    padding: $item-padding;
+    border-radius: 3px;
+    padding-left: 10px;
+    font-size: 15px;
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        position: relative;
+        margin-right: 30px;
+        a {
+          text-decoration: none;
+          color: $primary-color-1;
+        }
+        &:last-child {
+          color: $active-color;
+        }
+        &:not(:last-child) {
+          &:after {
+            content: url("data:image/svg+xml; utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='20px' height='20px' viewBox='0 0 20 20'><path fill='#444' d='M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z'/><path fill='none' d='M0,0h24v24H0V0z'/></svg>");
+            position: absolute;
+            right: -22px;
+            top: -2px;
+          }
+        }
+      }
+    }
+  }
+}

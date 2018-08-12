@@ -8,6 +8,7 @@ const Navigation = (() => {
   const allOtherNavsParent = [];
   let secondaryNavCreated = false;
   let secondaryMobileNavs;
+  let menuOpen = false;
 
   /* Initial hiding of cdt-nav children */
   const navChildrenVisibility = (state) => {
@@ -33,6 +34,11 @@ const Navigation = (() => {
         secondaryMobileNavs.appendChild(secondaryMobileNavsUl);
         secondaryMobileNavs.classList.add('cdt-secondary', 'cdt-list');
         topNavigations.querySelector('nav').appendChild(secondaryMobileNavs);
+        const secondTopNav = document.querySelector('.cdt-second-nav');
+        if (secondTopNav) {
+          secondTopNav.querySelectorAll('ul li').forEach(item => secondaryMobileNavsUl.appendChild(item));
+          secondTopNav.style.display = 'none';
+        }
         allOtherNavs.forEach((nav, index) => {
           nav.querySelectorAll(':scope > ul > li').forEach((item) => {
             secondaryMobileNavsUl.appendChild(item);
@@ -62,6 +68,7 @@ const Navigation = (() => {
     mobileTrigger.addEventListener('click', (e) => {
       e.target.classList.toggle('open');
       topNavigations.classList.toggle('show');
+      menuOpen = !menuOpen;
     });
   }
 
@@ -94,7 +101,7 @@ const Navigation = (() => {
     let calculatedTopNavHeight = topNavHideHeight;
     if (secondaryNav) {
       calculatedTopNavHeight = topNavHideHeight - secondaryNav.offsetHeight;
-      console.log('yes', calculatedTopNavHeight);
+      topNavScrollHide.style.height = `${calculatedTopNavHeight}px`;
     }
     const hideOnScrollOffsetTop = '60';
     let isVisible = true;
@@ -106,7 +113,6 @@ const Navigation = (() => {
     const showHideNav = (scrollPos) => {
       if (scrollPos > previousScrollY) {
         if (isVisible && scrollPos > hideOnScrollOffsetTop) {
-          topNavScrollHide.style.height = `${calculatedTopNavHeight}px`;
           isVisible = false;
           topNavScrollHide.style.transition = 'transform 400ms ease-out';
           topNavScrollHide.style.transform = 'translateY(-100%)';
@@ -118,16 +124,18 @@ const Navigation = (() => {
       }
       previousScrollY = scrollPos;
     };
-    window.addEventListener('scroll', () => {
-      lastKnownScrollPosition = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          showHideNav(lastKnownScrollPosition);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
+    if (!menuOpen) {
+      window.addEventListener('scroll', () => {
+        lastKnownScrollPosition = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            showHideNav(lastKnownScrollPosition);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
   }
 })();
 
