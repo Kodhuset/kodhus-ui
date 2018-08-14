@@ -65,7 +65,7 @@ input[type="text"] {
         cursor: pointer;
         &:checked {
           &:before {
-            background: $primary-color-1;
+            background: $primary-color;
           }
           &:after {
             right: 2px;
@@ -109,8 +109,8 @@ input[type="text"] {
         visibility: hidden;
         &:checked {
           &+ label:before {
-            background: $primary-color-1;
-            border-color: $primary-color-1;
+            background: $primary-color;
+            border-color: $primary-color;
           }
         }
       }
@@ -160,11 +160,11 @@ input[type="text"] {
           &+ label {
             &:before {
               background: #fff;
-              border-color: $primary-color-1;
+              border-color: $primary-color;
             }
             &:after {
               transition: all 0.1s;
-              background: $primary-color-1;
+              background: $primary-color;
             }
           }
         }

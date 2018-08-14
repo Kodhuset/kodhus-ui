@@ -11,6 +11,9 @@
     }
   }
   &-nav {
+    @media screen and (max-width: $desktop-breakpoint) {
+      border-bottom: 1px solid #eee;
+    }
     li.selected {
       &>.cdt-list-item {
         
@@ -19,14 +22,14 @@
           height: 60%;
           width: 2px;
           position: absolute;
-          background-color: $primary-color-1;
+          background-color: $primary-color;
           left: -8px;
           top: 50%;
           transform: translateY(-50%);
         }
-        color: $primary-color-1;
+        color: $primary-color;
         a {
-          color: $primary-color-1;
+          color: $primary-color;
         }
       }
     }
@@ -34,9 +37,9 @@
       .cdt-list-item {
         position: relative;
         a:hover {
-          color: $primary-color-1;
+          color: $primary-color;
           a {
-            color: $primary-color-1;
+            color: $primary-color;
           }
         }
       }
@@ -97,15 +100,15 @@
         width: 100%;
       }
       &.center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        @media screen and (max-width: $mobile-breakpoint) {
           position: relative;
           width: 100%;
           text-align: center;
           justify-content: center;
+        @media screen and (min-width: $desktop-breakpoint) {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
       a {
@@ -173,12 +176,8 @@
       text-decoration: none;
       color: #666;
       &:hover {
-        color: $primary-color-1;
+        color: $primary-color;
       }
-    }
-    nav ul li {
-      align-items: center;
-      display: flex;
     }
     &.underline {
       .navigations nav ul li {
@@ -191,7 +190,7 @@
             bottom: 0;
             width: 100%;
             height: 3px;
-            background: $primary-color-1;
+            background: $primary-color;
           }
         }
       }
@@ -201,7 +200,7 @@
         transition: all 0.2s;
         &:hover,
         &.selected {
-          background: lighten($primary-color-1, 50%);
+          background: lighten($primary-color, 50%);
         }
       }
     }
@@ -223,12 +222,12 @@
         transition: all 0.2s;
         a {
           &:hover {
-            border: 1px solid $primary-color-1;  
+            border: 1px solid $primary-color;  
           }
         }
         &.selected {
           a {
-            border: 1px solid $primary-color-1;
+            border: 1px solid $primary-color;
           }
           
         }
@@ -256,7 +255,16 @@
     }
     .navigations {
       background: #fff;
+      &.hide {
+        display: none;
+      }
+      @media screen and (max-width: 1024px) {
+        //height: 100%;
+      }
       &.cdt-second-nav {
+        @media screen and (max-width: $mobile-breakpoint) {
+          display: none;
+        }
         flex-basis: 100%;
         display: flex;
         clear: both;
@@ -300,7 +308,7 @@
               bottom: 0;
               width: 100%;
               height: 3px;
-              background: $primary-color-1;
+              background: $primary-color;
             }
           }
         }
@@ -312,10 +320,10 @@
             li {
               &.selected, &:hover {
                 a {
-                  color: $primary-color-1 !important;
+                  color: $primary-color !important;
                 }
                 &:after {
-                  background: $primary-color-1;
+                  background: $primary-color;
                 }
               }
               a {
@@ -346,11 +354,31 @@
         }
       }
     }
+    .mobile-navigation {
+      @media screen and (max-width: $desktop-breakpoint) {
+        display: none;
+      }
+      display: none;
+      position: absolute;
+      background: #fff;
+      width: 100%;
+      z-index: 999999999;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      overflow-y: scroll;
+      padding-bottom: 80px;
+      &.open {
+        display: block;
+      }
+    }
+    
     nav {
+      @media screen and (min-width: $desktop-breakpoint) {
+        height: 100%;
+      }
       &:nth-of-type(2) {
         margin-left: auto;
       }
-      margin: 0 30px 0 3px;
+      margin: 0 30px 0 30px;
       @media screen and (max-width: $tablet-breakpoint) {
         width: 100%;
         flex-grow: 1;
@@ -362,8 +390,12 @@
         display: flex;
         flex-wrap: wrap;
         list-style: none;
-        height: 100%;
+        @media screen and (min-width: $desktop-breakpoint) {
+          height: 100%;
+        }
         li {
+          align-items: center;
+          display: flex;
           @media screen and (max-width: $mobile-breakpoint) {
             flex-basis: 100%;
           }

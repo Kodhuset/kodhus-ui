@@ -1,13 +1,102 @@
 .cdt {
     &-btn {
         outline: none;
+        position: relative;
         &-transparent {
           background: 0;
-          color: $primary-color-1;
+          color: $primary-color;
           transition: all 0.2s;
           &:hover {
-            background: darken($primary-color-1, 20%);
+            background: darken($primary-color, 20%);
             color: #fff;
+          }
+        }
+        &.move-out {
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+          &:after {
+            content: '';
+            width: 0;
+            height: 3px;
+            position: absolute;
+            transition: .2s;
+            background: #fff;
+            left: 50%;
+            bottom: 0;
+          }
+          &:hover {
+            &:after {
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
+        &.move-in-out {
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+          &:after {
+            content: '';
+            width: 0;
+            height: 3px;
+            position: absolute;
+            transition: .2s;
+            background: #fff;
+            right: 0;
+            left: auto;
+            bottom: 0;
+          }
+          &:hover {
+            &:after {
+              width: 100%;
+              left: 0;  
+            }
+          }
+        }
+        &.arrow {
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+          padding-left: 30px;
+          padding-right: 30px;
+          overflow: hidden;
+          box-sizing: border-box;
+          transition: all 0.3s ease-in-out;
+          &:before,&:after {
+            top: 50%;
+            left: -5px;
+            content: '';
+            width: 5px;
+            height: 1px;
+            position: absolute;
+            transform-origin: 100% 50%;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+          }
+          &.after {
+            &:before,&:after {
+              left: auto;
+              right: 18px;
+              opacity: 1;
+            }
+            &:hover {
+              &:before, &:after {
+                right: 16px;
+                left: auto;
+                opacity: 1;
+              }
+            }
+          }
+          &:before {
+            transform: translateY(1px) rotate(45deg);
+          }
+          &:after {
+            transform: translateY(1px) rotate(-45deg);
+          }
+          &:hover {
+            background-color: #fff;
+            color: #333;
+            &:before, &:after {
+              left: 15px;
+              opacity: 1;
+              background-color: #333;
+            }
           }
         }
         &-rounded {
@@ -34,18 +123,18 @@
         cursor: pointer;
         &-primary {
           color: #fff;
-          background: $primary-color-1;
+          background: $primary-color;
           transition: all 0.2s;
           &:hover {
-            background: darken($primary-color-1, 5%);
+            background: darken($primary-color, 5%);
           }
         }
         &-primary-1 {
           color: #fff;
-          background: $primary-color-2;
+          background: $primary-color-alt;
           transition: all 0.2s;
           &:hover {
-            background: darken($primary-color-2, 5%);
+            background: darken($primary-color-alt, 5%);
           }
         }
         &-secondary {

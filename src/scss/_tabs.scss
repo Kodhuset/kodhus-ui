@@ -26,24 +26,24 @@
         margin: 0 $tab-padding;
         min-height: 34px;
         &.selected {
-          color: $primary-color-1;
+          color: $primary-color;
           &:after {
             content: '';
             width: 100%;
             height: 2px;
             position: absolute;
-            background-color: $primary-color-1;
+            background-color: $primary-color;
             left: 0;
             bottom: 0;
           }
           a {
-            color: $primary-color-1;
+            color: $primary-color;
           }
         }
         &:hover {
-          color: $primary-color-1;
+          color: $primary-color;
           a {
-            color: $primary-color-1;
+            color: $primary-color;
           }
         }
         a {

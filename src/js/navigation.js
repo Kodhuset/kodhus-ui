@@ -1,73 +1,99 @@
 import Utils from './utils';
 
 const Navigation = (() => {
+  const topNav = document.querySelector('.cdt-top-nav');
   const mobileTrigger = document.querySelector('.cdt-top-nav .mobile-trigger');
-  const topNavigations = document.querySelector('.cdt-top-nav .navigations');
+  const topNavigations = document.querySelectorAll('.cdt-top-nav .navigations');
+  const secondaryNav = document.querySelector('.cdt-second-nav');
+
   const navItems = document.querySelectorAll('.cdt-nav > li');
   const allOtherNavsCloned = [];
   const allOtherNavsParent = [];
   let secondaryNavCreated = false;
-  let secondaryMobileNavs;
+
   let menuOpen = false;
+
+  const mobileNavigation = document.createElement('div');
+  mobileNavigation.classList.add('mobile-navigation');
+  // const mobileNavigationNav = document.createElement('nav');
+  // mobileNavigation.appendChild(mobileNavigationNav);
 
   /* Initial hiding of cdt-nav children */
   const navChildrenVisibility = (state) => {
-    const cls = (state) ? 'show' : 'hide';
-    const navChildren = document.querySelectorAll('.cdt-nav li ul');
-    navChildren.forEach((listItem) => {
-      listItem.classList.add(cls);
-    });
+    // const cls = (state) ? 'show' : 'hide';
+    // const navChildren = document.querySelectorAll('.cdt-nav li ul');
+    // navChildren.forEach((listItem) => {
+    //   listItem.classList.add(cls);
+    // });
   };
 
   const setResponsiveMenu = () => {
-    if (window.innerWidth <= Utils.tabletPhoneBreakpoint) {
-      navChildrenVisibility(false);
+    const secondaryMobileNavs = document.createElement('nav');
+    secondaryMobileNavs.classList.add('cdt-list', 'cdt-secondary');
+    const secondaryMobileNavsUl = document.createElement('ul');
+    secondaryMobileNavs.appendChild(secondaryMobileNavsUl);
+    if (window.innerWidth <= Utils.desktopBreakPoint) {
+      // navChildrenVisibility(false);
       const allOtherNavs = document.querySelectorAll('.cdt-nav-responsive');
       allOtherNavs.forEach((nav) => {
         allOtherNavsCloned.push(nav.cloneNode(true));
         // let parentElement = nav.parentElement;
         allOtherNavsParent.push(nav.parentElement);
       });
+
       if (!secondaryNavCreated) {
-        secondaryMobileNavs = document.createElement('div');
-        const secondaryMobileNavsUl = document.createElement('ul');
-        secondaryMobileNavs.appendChild(secondaryMobileNavsUl);
-        secondaryMobileNavs.classList.add('cdt-secondary', 'cdt-list');
-        topNavigations.querySelector('nav').appendChild(secondaryMobileNavs);
-        const secondTopNav = document.querySelector('.cdt-second-nav');
-        if (secondTopNav) {
-          secondTopNav.querySelectorAll('ul li').forEach(item => secondaryMobileNavsUl.appendChild(item));
-          secondTopNav.style.display = 'none';
-        }
+        topNavigations.forEach((navigation) => {
+          navigation.querySelectorAll('nav').forEach(nav => mobileNavigation.appendChild(nav.cloneNode(true)));
+        });
+        topNav.appendChild(mobileNavigation);
+        mobileNavigation.style.top = `${topNav.offsetHeight}px`;
         allOtherNavs.forEach((nav, index) => {
           nav.querySelectorAll(':scope > ul > li').forEach((item) => {
             secondaryMobileNavsUl.appendChild(item);
           });
           allOtherNavsParent[index].removeChild(allOtherNavs[index]);
         });
+        mobileNavigation.appendChild(secondaryMobileNavs);
+        mobileNavigation.classList.add('navigations');
         secondaryNavCreated = true;
       }
-    } else if (secondaryNavCreated) {
-      navChildrenVisibility(true);
-      allOtherNavsParent.map((parent, index) => parent.appendChild(allOtherNavsCloned[index]));
-      secondaryMobileNavs.parentElement.removeChild(secondaryMobileNavs);
-      secondaryMobileNavs = null;
-      secondaryNavCreated = false;
-      allOtherNavsCloned.length = 0;
-      allOtherNavsParent.length = 0;
+    } else {
+      console.log('screen bigger than desktop', window.innerWidth, Utils.desktopBreakPoint);
+      if (secondaryNav) {
+        topNav.style.height = `${document.querySelectorAll('.navigations')[0].offsetHeight}px`;
+      }
+      if (secondaryNavCreated) {
+        navChildrenVisibility(true);
+        allOtherNavsParent.map((parent, index) => parent.appendChild(allOtherNavsCloned[index]));
+        // secondaryMobileNavs.parentElement.removeChild(secondaryMobileNavs);
+        // secondaryMobileNavs = null;
+        // secondaryNavCreated = false;
+        allOtherNavsCloned.length = 0;
+        allOtherNavsParent.length = 0;
+      }
+      if (mobileNavigation) {
+        mobileNavigation.classList.remove('open');
+      }
+      // topNavigations.forEach((navigation) => {
+      //   navigation.classList.remove('hide');
+      // });
+      // if (secondTopNav) {
+      //   secondTopNav.classList.remove('hide');
+      // }
     }
   };
   if (topNavigations) {
     window.addEventListener('resize', () => {
+      console.log('resize triggered');
       setResponsiveMenu();
     });
     setResponsiveMenu();
   }
 
   if (mobileTrigger) {
-    mobileTrigger.addEventListener('click', (e) => {
-      e.target.classList.toggle('open');
-      topNavigations.classList.toggle('show');
+    mobileTrigger.addEventListener('click', () => {
+      mobileNavigation.classList.toggle('open');
+      // topNavigations.classList.toggle('show');
       menuOpen = !menuOpen;
     });
   }
@@ -93,16 +119,12 @@ const Navigation = (() => {
     });
   });
 
+  
+  // const topNavHideHeight = topNavScrollHide.offsetHeight;
+  // let calculatedTopNavHeight = topNavHideHeight;
   // Hide on Scroll
   const topNavScrollHide = document.querySelector('.cdt-top-nav.hide-on-scroll');
   if (topNavScrollHide) {
-    const secondaryNav = document.querySelector('.cdt-second-nav');
-    const topNavHideHeight = topNavScrollHide.offsetHeight;
-    let calculatedTopNavHeight = topNavHideHeight;
-    if (secondaryNav) {
-      calculatedTopNavHeight = topNavHideHeight - secondaryNav.offsetHeight;
-      topNavScrollHide.style.height = `${calculatedTopNavHeight}px`;
-    }
     const hideOnScrollOffsetTop = '60';
     let isVisible = true;
 
