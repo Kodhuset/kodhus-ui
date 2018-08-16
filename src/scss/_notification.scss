@@ -15,15 +15,17 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10000;
         }
         &.absolute {
             position: absolute;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10000;
         }
         box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
-        transition: all 0.3;
+        transition: all 0.3s;
         &.hide {
             display: none;
         }
