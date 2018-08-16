@@ -3,16 +3,25 @@
         width: 90%;
         padding: 10px 20px;
         background: #202124;
+        margin: 0 auto;
         margin-bottom: 10px;
         border-radius: 3px;
         color: #fff;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        &.fixed {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &.absolute {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
         transition: all 0.3;
         &.hide {
