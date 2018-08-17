@@ -37,6 +37,10 @@ input[type="text"] {
     flex-basis: 100%;
     border-radius: 2px;
     outline: none;
+    transition: all 0.3s;
+    &:focus {
+      border-color: $primary-color;
+    }
     &.cdt-error {
         border-color: #ff6565;
         background: lighten(#ff6565, 30%);
@@ -48,6 +52,9 @@ input[type="text"] {
     }
 }
 .cdt {
+    &-control {
+      width: 100%;
+    }
     &-toggle {
       position: relative;
       display: flex;
