@@ -33,8 +33,8 @@
   "scripts": {
     "build-css": "gulp sass-build",
     "build-css-min": "gulp sass-build-min",
-    "build-js": "rollup -c rollup.config.dev.js",
-    "build-js-min": "rollup -c rollup.config.prod.js",
+    "build-js": "rollup -c rollup.config.dev.js -m inline",
+    "build-js-min": "rollup -c rollup.config.prod.js -m inline",
     "build": "npm run build-css & npm run build-js",
     "build-min": "npm run build-css-min & npm run build-js-min",
     "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min"

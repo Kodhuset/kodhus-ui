@@ -82,7 +82,7 @@ const Navigation = (() => {
       // }
     }
   };
-  if (topNavigations) {
+  if (topNavigations && topNav) {
     window.addEventListener('resize', () => {
       console.log('resize triggered');
       setResponsiveMenu();
