@@ -10,7 +10,9 @@ import StepProgressBar from './step-progressbar';
 
 (() => {
   document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
+    if (hljs) {
+      hljs.highlightBlock(block);
+    }
   });
 })();
 
