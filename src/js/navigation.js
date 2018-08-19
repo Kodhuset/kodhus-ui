@@ -19,7 +19,7 @@ const Navigation = (() => {
   // mobileNavigation.appendChild(mobileNavigationNav);
 
   /* Initial hiding of cdt-nav children */
-  const navChildrenVisibility = (state) => {
+  const navChildrenVisibility = () => {
     // const cls = (state) ? 'show' : 'hide';
     // const navChildren = document.querySelectorAll('.cdt-nav li ul');
     // navChildren.forEach((listItem) => {
@@ -84,7 +84,6 @@ const Navigation = (() => {
   };
   if (topNavigations && topNav) {
     window.addEventListener('resize', () => {
-      console.log('resize triggered');
       setResponsiveMenu();
     });
     setResponsiveMenu();
@@ -119,7 +118,6 @@ const Navigation = (() => {
     });
   });
 
-  
   // const topNavHideHeight = topNavScrollHide.offsetHeight;
   // let calculatedTopNavHeight = topNavHideHeight;
   // Hide on Scroll

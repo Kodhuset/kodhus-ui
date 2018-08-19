@@ -89,34 +89,6 @@
       align-items: center;
       flex-grow: 1;
     }
-    .logo {
-      position: relative;
-      display: flex;
-      flex-grow: 0;
-      padding-left: 10px;
-      align-items: center;
-      min-height: 58px;
-      @media screen and (max-width: $mobile-breakpoint) {
-        width: 100%;
-      }
-      &.center {
-          position: relative;
-          width: 100%;
-          text-align: center;
-          justify-content: center;
-        @media screen and (min-width: $desktop-breakpoint) {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-        }
-      }
-      a {
-        text-decoration: none;
-        color: #333;
-        font-size: 18px;
-      }
-    }
     .mobile-trigger {
       @media screen and (min-width: $mobile-breakpoint) {
         display: none;
@@ -126,7 +98,15 @@
       height: 30px;
       display: block;
       right: 20px;
+      &.left {
+        right: auto;
+        left: 20px;
+        + .logo {
+          margin-left: 50px;
+        }
+      }
       top: 50%;
+      z-index: 10;
       transform: translateY(-50%);
       cursor: pointer;
       &.open {
@@ -168,6 +148,34 @@
         &:after {
           top: 7px;
         }
+      }
+    }
+    .logo {
+      position: relative;
+      display: flex;
+      flex-grow: 0;
+      padding-left: 10px;
+      align-items: center;
+      min-height: 58px;
+      @media screen and (max-width: $mobile-breakpoint) {
+        width: 100%;
+      }
+      &.center {
+          position: relative;
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+        @media screen and (min-width: $desktop-breakpoint) {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
       }
     }
     nav a {
