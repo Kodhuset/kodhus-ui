@@ -36,6 +36,24 @@ gulp.task('sass-build-min', () => (
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream())));
 
+gulp.task('sass-build-latest', () => (
+  gulp.src('src/scss/kodhus.scss')
+    .pipe(sass())
+    .pipe(csso())
+    .pipe(postcss([autoprefixer()]))
+    .pipe(rename({ suffix: '-latest' }))
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.stream())));
+
+gulp.task('sass-build-min-latest', () => (
+  gulp.src('src/scss/kodhus.scss')
+    .pipe(sass())
+    .pipe(csso())
+    .pipe(postcss([autoprefixer()]))
+    .pipe(rename({ suffix: '-latest.min' }))
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.stream())));
+
 gulp.task('js', () => (
   gulp.src('src/js/kodhus.js')
     .pipe(gulp.dest('dist'))));
