@@ -33,10 +33,15 @@
   "scripts": {
     "build-css": "gulp sass-build",
     "build-css-min": "gulp sass-build-min",
+    "build-css-latest": "gulp sass-build-latest",
+    "build-css-min-latest": "gulp sass-build-min-latest",
     "build-js": "rollup -c rollup.config.dev.js -m inline",
     "build-js-min": "rollup -c rollup.config.prod.js -m inline",
+    "build-js-latest": "rollup -c rollup.config.dev-latest.js -m inline",
+    "build-js-min-latest": "rollup -c rollup.config.prod-latest.js -m inline",
     "build": "npm run build-css & npm run build-js",
     "build-min": "npm run build-css-min & npm run build-js-min",
-    "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min"
+    "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min",
+    "build-all-latest": "npm run build-css-latest & npm run build-js-latest & npm run build-css-min-latest & npm run build-js-min-latest"
   }
 }
