@@ -1,6 +1,7 @@
 import Dialog from './dialog';
 import Notification from './notification';
 import Navigation from './navigation';
+import Dropdown from './dropdown';
 import Aiv from './aiv';
 import BGParallax from './bg-parallax';
 import Carousel from './carousel';
@@ -18,4 +19,5 @@ import StepProgressBar from './step-progressbar';
 
 export {
   Dialog, Notification, Navigation, Aiv, BGParallax, Carousel, KScroll, Tab, StepProgressBar,
+  Dropdown,
 };

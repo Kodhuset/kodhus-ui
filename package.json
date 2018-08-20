@@ -41,7 +41,8 @@
     "build-js-min-latest": "rollup -c rollup.config.prod-latest.js -m inline",
     "build": "npm run build-css & npm run build-js",
     "build-min": "npm run build-css-min & npm run build-js-min",
-    "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min",
-    "build-all-latest": "npm run build-css-latest & npm run build-js-latest & npm run build-css-min-latest & npm run build-js-min-latest"
+    "build-fonts": "cp -r src/fonts dist/fonts/",
+    "build-all": "npm run build-css & npm run build-js & npm run build-css-min & npm run build-js-min && npm run build-fonts",
+    "build-all-latest": "npm run build-css-latest & npm run build-js-latest & npm run build-css-min-latest & npm run build-js-min-latest && npm run build-fonts"
   }
 }

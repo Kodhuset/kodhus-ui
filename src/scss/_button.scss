@@ -6,7 +6,7 @@
           background: 0;
           color: $primary-color;
           transition: all 0.2s;
-          &:hover {
+          &:hover, &:focus {
             background: darken($primary-color, 20%);
             color: #fff;
           }
@@ -128,6 +128,14 @@
           &:hover {
             background: darken($primary-color, 5%);
           }
+          &:active {
+            background: darken($primary-color, 10%);
+            &:not(.drop-toggle) {
+              transform: scale(1.01);
+              transition: transform 0.3s;
+            }
+            color: #fff;
+          }
         }
         &-primary-1 {
           color: #fff;
@@ -136,6 +144,14 @@
           &:hover {
             background: darken($primary-color-alt, 5%);
           }
+          &:active {
+            background: darken($primary-color-alt, 10%);
+            &:not(.drop-toggle) {
+              transform: scale(1.01);
+              transition: transform 0.3s;
+            }
+            color: #fff;
+          }
         }
         &-secondary {
           color: #fff;
@@ -143,6 +159,15 @@
           transition: all 0.2s;
           &:hover {
             background: darken($secondary-color, 5%);
+            
+          }
+          &:active {
+            background: darken($secondary-color, 10%);
+            &:not(.drop-toggle) {
+              transform: scale(1.01);
+              transition: transform 0.3s;
+            }
+            color: #fff;
           }
         }
         &-error {
@@ -152,6 +177,14 @@
           &:hover {
             background: darken($error-color, 5%);
           }
+          &:active {
+            background: darken($error-color, 10%);
+            &:not(.drop-toggle) {
+              transform: scale(1.01);
+              transition: transform 0.3s;
+            }
+            color: #fff;
+          }
         }
         &-gray {
           color: #fff;
@@ -159,6 +192,14 @@
           transition: all 0.2s;
           &:hover {
             background: darken($gray-color-2, 5%);
+          }
+          &:active {
+            background: darken($gray-color-2, 10%);
+            &:not(.drop-toggle) {
+              transform: scale(1.01);
+              transition: transform 0.3s;
+            }
+            color: #fff;
           }
         }
     }
