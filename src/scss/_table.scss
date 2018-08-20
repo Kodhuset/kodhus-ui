@@ -1,14 +1,24 @@
 .cdt {
     &-table {
+        &.zebra {
+          tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+        }
         width: 100%;
         position: relative;
         overflow-x: auto;
         table {
+          border-collapse: collapse;
           width: 100%;
           th, td {
             padding: 14px 0;
             border-bottom: 1px solid $gray-color-4;
+            &:first-child {
+              padding-left: 10px;
+            }
           }
+          
           thead {
             th {
               text-align: left;
