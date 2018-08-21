@@ -4,7 +4,13 @@ const Dropdown = (() => {
     const dropDownPadding = 4;
     dropToggles.forEach((dropToggle) => {
       const dropDown = dropToggle.nextElementSibling;
-      dropToggle.addEventListener('click', () => {
+      dropDown.querySelectorAll('li').forEach((item) => {
+        item.addEventListener('click', () => {
+          dropDown.classList.toggle('open');
+        });
+      });
+      dropToggle.addEventListener('click', (e) => {
+        e.stopImmediatePropagation();
         const dropToggleRect = dropToggle.getBoundingClientRect();
         let topPosition;
         let leftPosition;
@@ -20,6 +26,12 @@ const Dropdown = (() => {
         }
         dropDown.style.transform = `translate3d(${leftPosition}px, ${topPosition}px, 0)`;
         dropDown.classList.toggle('open');
+      });
+    });
+    // close dropdowns if clicked outside
+    document.addEventListener('click', () => {
+      dropToggles.forEach((dropToggle) => {
+        dropToggle.nextElementSibling.classList.remove('open');
       });
     });
   }
