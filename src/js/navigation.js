@@ -43,7 +43,8 @@ const Navigation = (() => {
 
       if (!secondaryNavCreated) {
         topNavigations.forEach((navigation) => {
-          navigation.querySelectorAll('nav').forEach(nav => mobileNavigation.appendChild(nav.cloneNode(true)));
+          navigation.querySelectorAll('nav').forEach(nav => !(nav.classList.contains('no-responsive'))
+            && mobileNavigation.appendChild(nav.cloneNode(true)));
         });
         topNav.appendChild(mobileNavigation);
         mobileNavigation.style.top = `${topNav.offsetHeight}px`;
