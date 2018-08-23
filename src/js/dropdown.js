@@ -4,7 +4,8 @@ const Dropdown = (() => {
     const dropDownPadding = 4;
     dropToggles.forEach((dropToggle) => {
       const dropDown = dropToggle.nextElementSibling;
-      dropToggle.addEventListener('click', () => {
+      dropToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         const dropToggleRect = dropToggle.getBoundingClientRect();
         let topPosition;
         let leftPosition;
