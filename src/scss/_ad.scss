@@ -1,0 +1,25 @@
+.cdt-ad {
+  $ad-placeholder-bg-color: #eee;
+  background-color: $ad-placeholder-bg-color;
+  &.rect-md {
+    width: 300px;
+    height: 250px;
+  }
+  &.rect-lg {
+    width: 336px;
+    height: 280px;
+  }
+  &.rect-square {
+    width: 250px;
+    height: 250px;
+  }
+  &.h-banner {
+    width: 468px;
+    height: 60px;
+  }
+  &.h-leaderboard {
+    width: 728px;
+    height: 90px;
+  }
+  
+}

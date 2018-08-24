@@ -55,6 +55,38 @@ input[type="text"] {
     &-control {
       width: 100%;
     }
+    &-select {
+      position: relative;
+      select {
+        width: 100%;
+        border: 1px solid #bbb;
+        &:focus {
+          border-color: $primary-color;
+        }
+        font-size: inherit;
+        padding: 10px;
+        color: #666;
+        border-radius: 3px;
+        outline: 0;
+        box-sizing: border-box;
+        vertical-align: middle;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        color: #333;
+        position: relative;
+        cursor: pointer;
+      }
+      &:after {
+        content: '\e900';
+        font-family: 'icomoon';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #333;
+        pointer-events: none;
+      }
+    }
     &-toggle {
       position: relative;
       display: flex;

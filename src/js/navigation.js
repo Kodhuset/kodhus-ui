@@ -63,7 +63,6 @@ const Navigation = (() => {
         secondaryNavCreated = true;
       }
     } else {
-      console.log('screen bigger than desktop', window.innerWidth, Utils.desktopBreakPoint);
       if (secondaryNav) {
         topNav.style.height = `${document.querySelectorAll('.navigations')[0].offsetHeight}px`;
       }
