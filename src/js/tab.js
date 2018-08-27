@@ -2,7 +2,7 @@ const Tab = (() => {
   let selectedIndex = 0;
   const tabs = document.querySelectorAll('.cdt-tab');
   tabs.forEach((tab) => {
-    tab.querySelectorAll('li')
+    tab.children[0].querySelectorAll('li')
       .forEach((item, index) => {
         if (item.classList.contains('selected')) {
           selectedIndex = index;
