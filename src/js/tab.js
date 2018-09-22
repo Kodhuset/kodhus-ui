@@ -1,8 +1,9 @@
 const Tab = (() => {
   let selectedIndex = 0;
   const tabs = document.querySelectorAll('.cdt-tab');
+  console.log('tabs!', tabs);
   tabs.forEach((tab) => {
-    tab.children[0].querySelectorAll('li')
+    tab.querySelector('ul').querySelectorAll('li')
       .forEach((item, index) => {
         if (item.classList.contains('selected')) {
           selectedIndex = index;
