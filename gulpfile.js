@@ -21,7 +21,6 @@ gulp.task('serve', () => {
 gulp.task('sass-build', () => (
   gulp.src('src/scss/kodhus.scss')
     .pipe(sass())
-    .pipe(csso())
     .pipe(postcss([autoprefixer()]))
     .pipe(rename({ suffix: `-${version}` }))
     .pipe(gulp.dest('dist'))
